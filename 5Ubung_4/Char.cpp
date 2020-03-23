@@ -14,27 +14,22 @@ int new_strlen(char* word)
 
 char* new_strcpy(char* word, char* word1)
 {
-	int i = 0;
+	int i;
 	int length = new_strlen(word), length1 = new_strlen(word1);
+
+	for (i = 0; i < length1; i++)
+	{
+		word[i] = word1[i];
+	}
 	
-	if (length <= length1)
-	{
-		for (i = 0; i < length1; i++)
-		{
-			word[i] = word1[i];
-		}
-		return word;
-	}
+	word[i++] = '\0';
 
-	if (length > length1)
-	{
-
-
-	}
+	return word;
+}
 
 int main()
 {
-	char word[10] = "car", word1[10] = "and moto";
+	char word[10] = "Motor", word1[10] = "Bike";
 	cout << "The length is: " << new_strlen(word) << endl;
 
 	cout << "The word became: " << new_strcpy(word, word1);
